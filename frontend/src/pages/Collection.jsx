@@ -4,7 +4,7 @@ import { ShopContext } from '../context/ShopContext'
 const Collection = () => {
   const {products} = useContext(ShopContext);
   return (
-    <div>
+    <div className='flex '>
       
     </div>
   )
