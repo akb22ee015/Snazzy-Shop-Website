@@ -8,7 +8,12 @@ a.active hr{
 
 *{
     font-family: Outfit;
+
     /* background-color: rgb(175, 180, 178); */
+}
+
+button{
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar{
