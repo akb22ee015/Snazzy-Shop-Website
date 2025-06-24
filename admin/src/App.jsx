@@ -6,6 +6,7 @@ import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
+import { ToastContainer, toast } from 'react-toastify';
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL; // ✅ Make sure this line is correct
 
@@ -14,6 +15,7 @@ const App = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      <ToastContainer/>
       {token === "" ? (
         <Login setToken={setToken} /> // ✅ Pass setToken to Login
       ) : (
