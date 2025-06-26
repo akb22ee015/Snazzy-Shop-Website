@@ -6,20 +6,27 @@ import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL; // ✅ Make sure this line is correct
 
 const App = () => {
-  const [token, setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):'');
+  const [token, setToken] = useState(
+    localStorage.getItem("token") ? localStorage.getItem("token") : ""
+  );
 
-  useEffect(()=>{
-    localStorage.setItem('token',token)
-  },[token])
+  useEffect(() => {
+    localStorage.setItem("token", token);
+  }, [token]);
+
+  // useEffect(() => {
+  //   toast("This is a test toast!");
+  // }, []);
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <ToastContainer/>
+      <ToastContainer />
       {token === "" ? (
         <Login setToken={setToken} /> // ✅ Pass setToken to Login
       ) : (
