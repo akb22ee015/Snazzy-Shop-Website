@@ -6,10 +6,11 @@ import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL; // ✅ Make sure this line is correct
+export const backendUrl = import.meta.env.VITE_BACKEND_URL; //  Make sure this line is correct
+export const currency = '₹'
 
 const App = () => {
   const [token, setToken] = useState(
@@ -28,7 +29,7 @@ const App = () => {
     <div className="bg-gray-50 min-h-screen">
       <ToastContainer />
       {token === "" ? (
-        <Login setToken={setToken} /> // ✅ Pass setToken to Login
+        <Login setToken={setToken} /> //  Pass setToken to Login
       ) : (
         <>
           <Navbar setToken={setToken} />
