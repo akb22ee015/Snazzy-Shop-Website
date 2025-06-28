@@ -14,7 +14,7 @@ const Collection = () => {
 
   useEffect(() => {
     setFilterProducts(products);
-  }, []);
+  }, [products]);
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -71,7 +71,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory,search,showSearch]);
+  }, [category, subCategory,search,showSearch,products]);
 
   useEffect(()=>{
     sortProduct();
