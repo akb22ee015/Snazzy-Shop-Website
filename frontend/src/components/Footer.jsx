@@ -1,16 +1,24 @@
 import React from "react";
 import { ShopContext } from "../context/ShopContext";
-import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
+// import { assets } from "../assets/assets";
 
 const Footer = () => {
-//   const products = useState(ShopContext);
+  //   const products = useState(ShopContext);
   return (
     <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         {/* Logo and Description */}
         <div>
-          <img src={assets.logo} className="mb-5 w-32" alt="Logo" />
-          <p className="w-full md:w-2/3 text-gray-600">
+          {/* <img src={assets.logo} className="mb-5 w-32" alt="Logo" />
+           */}
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="text-2xl font-extrabold text-gray-800 tracking-tight group-hover:text-indigo-600 transition-colors duration-300">
+              SNAZZYSHOP
+            </div>
+            <span className="w-2 h-2 bg-indigo-600 rounded-full group-hover:scale-125 transition-transform duration-300"></span>
+          </Link>
+          <p className="w-full mt-2 md:w-2/3 text-gray-600">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
