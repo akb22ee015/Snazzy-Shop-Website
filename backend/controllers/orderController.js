@@ -49,6 +49,17 @@ const placeOrderRozerpay = async (req,res) => {
 //All oders details at admin
 const allOrders = async (req,res) => {
     
+    try {
+
+        const orders = await orderModel.find({})
+        res.json({success:true,orders})
+
+    } catch (error) {
+        
+        console.log(error);
+        res.json({success:false,message:error.message})
+    }
+
 }
 
 //user data at frontend
