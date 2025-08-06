@@ -3,6 +3,7 @@ import axios from "axios";
 import { backendUrl, currency } from "../App";
 import { toast } from "react-toastify";
 import { assets } from "../assets/assets";
+// import { response } from "express";
 
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
@@ -27,6 +28,20 @@ const Orders = ({ token }) => {
       toast.error(error.message);
     }
   };
+
+  const statusHandler = async (event,orderId) => {
+    try {
+      const response = await axios.post(backendUrl + '/api/order/status',{orderId,status:event.target.value},{headers:{token}})
+
+      if(response.data.success){
+        await fetchALlOrders()
+      }
+    } catch (error) {
+      console.log(error);
+      // toast.error(response.data.message)
+      // res.json({success:false,message:error.message})
+    }
+  }
 
   useEffect(() => {
     fetchALlOrders();
@@ -72,7 +87,7 @@ const Orders = ({ token }) => {
               {/* Amount & Status */}
               <div className="flex justify-between items-center mt-2">
                 <p className="text-lg font-semibold">{currency} {order.amount}</p>
-                <select className="border rounded-lg px-3 py-1 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className="border rounded-lg px-3 py-1 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400">
                   <option value="Order Placed">Order Placed</option>
                   <option value="Shipped">Shipped</option>
                   <option value="Packed">Packed</option>
